@@ -15,7 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from clubs.views import ClubChartView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', ClubChartView.as_view(), name='club-chart')
 ]

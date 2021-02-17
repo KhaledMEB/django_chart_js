@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'clubs/base.html' %}
 {% block title %}
     Clubs Ranking
 {% endblock title %}
@@ -10,10 +10,10 @@
             var myChart = new Chart(ctx, {
                 type: 'bar',
                 data: {
-                    labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                    labels: [{% for item in qs %}'{{item.name}}',{% endfor %}],
                     datasets: [{
                         label: '# of Votes',
-                        data: [12, 19, 3, 5, 2, 3],
+                        data: [{% for item in qs %}{{item.money}},{% endfor %}],
                         backgroundColor: [
                             'rgba(255, 99, 132, 0.2)',
                             'rgba(54, 162, 235, 0.2)',
@@ -48,5 +48,5 @@
 {% endblock scripts %}
 
 {% block content %}
-    <canvas id="myChart" width="400" height="400"></canvas>
+    <canvas id="myChart" width="400" height="170"></canvas>
 {% endblock content %}
