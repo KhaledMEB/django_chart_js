@@ -12,9 +12,13 @@
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 
-    <title></title>
+    <title>{% block title %}{% endblock title %}</title>
   </head>
   <body>
-   
+    {% block scripts %}
+    {% endblock scripts %}
+
+    {% block content %}
+    {% endblock content %}
   </body>
 </html>
